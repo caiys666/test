@@ -1,0 +1,69 @@
+<template>
+  <div class="home">
+    <div class="div-img"><img/></div>
+    <el-form  status-icon label-width="100px" class="demo-ruleForm">
+      <el-form-item class="item-form">
+        <label for="password" class="label">密码</label>
+        <el-input 
+          id="password"
+          class="common-input" 
+          type="password" 
+          auto-complete="off"></el-input>
+      </el-form-item>
+      <el-form-item class="item-form">
+        <label for="password" class="label">密码</label>
+        <el-input id="password" class="common-input" type="password"  auto-complete="off"></el-input>
+      </el-form-item>
+      <el-form-item>
+      <el-button type="primary" @click="submitForm">提交</el-button>
+    </el-form-item>
+    </el-form>
+
+  </div>
+</template>
+
+<script>
+// @ is an alias to /src
+import { reactive, ref, computed } from '@vue/composition-api';
+import backImg from '../../src/assets/dilireba.png';
+export default {
+  name: 'Login',
+  setup(props,{refs, root}){
+    const backImg = backImg;
+    var submitForm = () => {
+      root.$router.push({
+                    name: 'Page'
+                });
+    };
+    return{
+      submitForm,
+      backImg
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.div-img{
+  background-color: #8FBAD9;
+}
+img{
+  width: 100%;
+  height: 450px;
+  background: url("../../src/assets/dilireba.png") no-repeat;
+  background-position: center;
+}
+.common-input{
+  width: 200px !important;
+}
+.item-form{
+    margin-bottom: 13px;
+}
+.label{
+  margin-right: 20px;
+}
+.el-form{
+  // margin-top:200px;
+}
+
+</style>
